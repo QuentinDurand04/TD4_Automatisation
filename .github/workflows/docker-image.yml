@@ -2,9 +2,6 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
 
@@ -14,5 +11,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+
+    - name: php
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+      
+    - name: composer
+      run: composer update
+    
+    - name: test
+      run: phpunit
+      

@@ -21,5 +21,5 @@ jobs:
       run: composer update
     
     - name: test
-      run: phpunit./vendor/bin/phpunit
+      run: ./vendor/bin/phpunit
 

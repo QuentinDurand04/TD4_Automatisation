@@ -71,9 +71,9 @@ class User1
         return $this->Adress;
     }
 
-    public function setAdress(string $Adress): static
+    public function setAdress(string $Adresss): static
     {
-        $this->Adress = $Adress;
+        $this->Adresss = $Adresss;
 
         return $this;
     }

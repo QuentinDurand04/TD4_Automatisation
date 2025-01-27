@@ -5,15 +5,15 @@ on:
   pull_request:
     branches: [ "main" ]
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          php-version: '8.0'
-      - name: Install Composer dependencies
-        run: composer update
-      - name: Lint PHP files
-        run: composer lint
+          node-version: '14'
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint
